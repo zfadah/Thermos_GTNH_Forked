@@ -164,9 +164,10 @@ def String repeat(String string, int times) {
 def generateClasspath() {
     def classpath = ''
     configurations.libraries.resolvedConfiguration.resolvedArtifacts.collect { it.moduleVersion.id }.each {
+        // Nested layout:
         def jar = "${it.group.replace('.', '/')}/${it.name}/${it.version}/${it.name}-${it.version}.jar"
         classpath += " ${'libraries/'}${jar}"
-        classpath += " ${'libraries/'}${it.version}.jar" // allow flat layout
+        classpath += " ${'libraries/'}${it.name}-${it.version}.jar" // allow flat layout
     }
     return classpath.trim()
 }
