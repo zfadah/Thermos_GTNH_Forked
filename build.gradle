@@ -6,7 +6,7 @@ buildscript {
     repositories {
         maven {
             name 'forge'
-            url 'http://files.minecraftforge.net/maven/'
+            url 'https://maven.minecraftforge.net/'
         }
         flatDir {
 			dirs 'libraries'
@@ -277,7 +277,7 @@ repositories {
     clear()
     maven {
         name 'forge'
-        url 'http://files.minecraftforge.net/maven/'
+        url 'https://maven.minecraftforge.net/'
     }
     flatDir {
         dirs '../../libraries'
