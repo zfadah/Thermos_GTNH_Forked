@@ -1938,24 +1938,24 @@
 -                itemstack = packetbuffer.readItemStackFromBuffer();
 +                push = packetbuffer.readItemStackFromBuffer();
  
--                if (itemstack == null)
-+                if (push == null)
+-                if (itemstack != null)
++                if (push != null)
                  {
-                     return;
-                 }
+-                    if (!ItemEditableBook.validBookTagContents(itemstack.getTagCompound()))
++                    if (!ItemEditableBook.validBookTagContents(push.getTagCompound()))
+                     {
+                         throw new IOException("Invalid book tag!");
+                     }
  
--                if (!ItemEditableBook.validBookTagContents(itemstack.getTagCompound()))
-+                if (!ItemEditableBook.validBookTagContents(push.getTagCompound()))
-                 {
-                     throw new IOException("Invalid book tag!");
-                 }
+-                    itemstack1 = this.playerEntity.inventory.getCurrentItem();
++                    stack = this.playerEntity.inventory.getCurrentItem();
  
--                itemstack1 = this.playerEntity.inventory.getCurrentItem();
-+                stack = this.playerEntity.inventory.getCurrentItem();
+-                    if (itemstack1 == null)
++                    if (stack == null)
+                     {
+                         return;
+                     }
  
--                if (itemstack1 != null)
-+                if (stack != null)
-                 {
 -                    if (itemstack.getItem() == Items.written_book && itemstack1.getItem() == Items.writable_book)
 +                    if (push.getItem() == Items.written_book && stack.getItem() == Items.writable_book)
                      {
@@ -1988,7 +1988,7 @@
 +                {
 +                    this.kickPlayerFromServer("Invalid book data!");
 +                }
-+            // CraftBukkit end
++                // CraftBukkit end
              }
              finally
              {
