@@ -45,12 +45,12 @@ jobs:
         path: build/distributions/*
 
     - name: Tar failed build
-      if: failed()
+      if: ${{ failure() }}
       run: tar -cvf failed_build.tar ./*
 
     - name: Upload failed build
       uses: actions/upload-artifact@v3
-      if: failed()
+      if: ${{ failure() }}
       with:
         name: failed-build
         path: failed_build.tar
