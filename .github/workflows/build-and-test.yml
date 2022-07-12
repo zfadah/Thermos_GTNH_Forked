@@ -44,6 +44,17 @@ jobs:
         name: thermos-server
         path: build/distributions/*
 
+    - name: Tar failed build
+      if: failed()
+      run: tar -cvf failed_build.tar ./*
+
+    - name: Upload failed build
+      uses: actions/upload-artifact@v3
+      if: failed()
+      with:
+        name: failed-build
+        path: failed_build.tar
+
     - name: Prepare libraries for launch
       run: cp -av libraries/ build/distributions/libraries
 
