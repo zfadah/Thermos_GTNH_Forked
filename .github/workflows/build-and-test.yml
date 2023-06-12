@@ -8,6 +8,8 @@ on:
     branches: [ master, main, '1.7.10' ]
   push:
     branches: [ master, main, '1.7.10' ]
+  workflow_dispatch:
+    branches: [ master, main, '1.7.10']
 
 jobs:
   build-and-test:
