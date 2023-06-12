@@ -39,7 +39,7 @@ jobs:
       run: chmod +x gradlew
 
     - name: Build thermos
-      run: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 ./gradlew setupCauldron jar packageBundle --info
+      run: JAVA_HOME=/opt/hostedtoolcache/Java_Zulu_jdk/8.0.372-7/x64 ./gradlew setupCauldron jar packageBundle --info
 
     - name: Upload thermos artifacts
       uses: actions/upload-artifact@v3
